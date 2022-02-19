@@ -94,14 +94,15 @@ export const login = async(req,res)=>{
    const isPasswordCorrect = await bcrypt.compare(password, existingUser.password);
       if(!isPasswordCorrect) return res.status(404).json({message: "invalid password"})
 
-   const payload = { id: existingUser._id, email: existingUser.email};
+   const payload = { id: existingUser._id, email: existingUser.email,phonenumber: existingUser.phonenumber, date: existingUser.Date};
 
    const token = jwt.sign(payload, process.env.SECRETKEY, {expiresIn:"1h"});
 
    res.status(200).json({status: true,
                         message: "login successful",
-                        details: existingUser,
+                        
                         data: {
+                           userdetails: payload,
                             tokens: {
                                 token_type:'Bearer ',
                                 expiresIn: "3600s",
