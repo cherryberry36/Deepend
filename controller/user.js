@@ -100,6 +100,7 @@ export const login = async(req,res)=>{
 
    res.status(200).json({status: true,
                         message: "login successful",
+                        details: existingUser,
                         data: {
                             tokens: {
                                 token_type:'Bearer ',
