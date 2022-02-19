@@ -27,10 +27,10 @@ export const signup = async(req,res)=>{
 let {fullname, email, phonenumber, password} = req.body;
 console.log(req.body)
 
- fullname = fullname.trim();
- email = email.trim();
- password = password.trim();
- phonenumber = phonenumber.trim();
+//  fullname = fullname.trim();
+//  email = email.trim();
+//  password = password.trim();
+//  phonenumber = phonenumber.trim();
 
  if (fullname == "" || email == "" || password == "" || phonenumber == "") {
      res.json({
